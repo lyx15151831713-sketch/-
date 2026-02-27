@@ -7,7 +7,7 @@ const PARTICLE_COUNT = 30000;
 // Mathematical curves functions
 const getPointOnCurve = (t: number, type: string) => {
   let x = 0, y = 0, z = 0;
-  const scale = 12; // Increased from 5 to 12 for larger area
+  const scale = 8; // Reduced from 12 to 8 for a more compact feel
 
   switch (type) {
     case 'heart':
@@ -16,41 +16,41 @@ const getPointOnCurve = (t: number, type: string) => {
       break;
     case 'butterfly':
       const exp = Math.exp(Math.cos(t)) - 2 * Math.cos(4 * t) - Math.pow(Math.sin(t / 12), 5);
-      x = Math.sin(t) * exp * 2;
-      y = Math.cos(t) * exp * 2;
+      x = Math.sin(t) * exp * 1.5;
+      y = Math.cos(t) * exp * 1.5;
       break;
     case 'spiral':
-      const a = 1.2;
+      const a = 1.0;
       x = a * t * Math.cos(t);
       y = a * t * Math.sin(t);
       break;
     case 'rose':
       const k = 4;
-      x = Math.cos(k * t) * Math.cos(t) * 15;
-      y = Math.cos(k * t) * Math.sin(t) * 15;
+      x = Math.cos(k * t) * Math.cos(t) * 12;
+      y = Math.cos(k * t) * Math.sin(t) * 12;
       break;
     case 'lemniscate':
-      const a2 = 15;
+      const a2 = 12;
       const den = 1 + Math.pow(Math.sin(t), 2);
       x = (a2 * Math.cos(t)) / den;
       y = (a2 * Math.sin(t) * Math.cos(t)) / den;
       break;
     case 'koch':
       // Simplified fractal-like star/koch approximation
-      const r = 15 * (1 + 0.3 * Math.sin(6 * t));
+      const r = 12 * (1 + 0.3 * Math.sin(6 * t));
       x = r * Math.cos(t);
       y = r * Math.sin(t);
       break;
     case 'catenary':
-      x = t * 4;
-      y = Math.cosh(t / 2) * 4 - 20;
+      x = t * 3;
+      y = Math.cosh(t / 2) * 3 - 15;
       break;
     case 'vortex':
     default:
-      const radius = t * 0.8;
+      const radius = t * 0.6;
       x = radius * Math.cos(t * 5);
       y = radius * Math.sin(t * 5);
-      z = t * 0.5;
+      z = t * 0.4;
       break;
   }
 
@@ -72,19 +72,22 @@ export const ParticleSystem = () => {
     const velocities = new Float32Array(PARTICLE_COUNT); // For falling effect
 
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 40;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 40;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 40;
+      positions[i * 3] = (Math.random() - 0.5) * 30;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 30;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 30;
 
       const color = new THREE.Color();
-      // Blue-purple-pink range
-      const h = 0.6 + Math.random() * 0.2; // 0.6 (blue) to 0.8 (purple/pink)
-      color.setHSL(h, 0.8, 0.6);
+      // Explicit blue to purple gradient based on index or random
+      const mix = Math.random();
+      const blue = new THREE.Color('#6366f1');
+      const purple = new THREE.Color('#a855f7');
+      color.lerpColors(blue, purple, mix);
+      
       colors[i * 3] = color.r;
       colors[i * 3 + 1] = color.g;
       colors[i * 3 + 2] = color.b;
 
-      sizes[i] = Math.random() * 0.05 + 0.02;
+      sizes[i] = Math.random() * 0.08 + 0.04; // Increased size for "thicker" look
       velocities[i] = Math.random() * 0.02 + 0.01; // Random falling speed
     }
     return { positions, colors, sizes, velocities };
