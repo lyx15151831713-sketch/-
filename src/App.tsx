@@ -72,14 +72,14 @@ export default function App() {
             <span className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
               AI Product Manager & Designer
             </span>
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-8 text-glow gradient-text">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-10 text-glow gradient-text">
               刘玉萱
             </h1>
-            <p className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-xl md:text-2xl text-zinc-400 max-w-4xl mx-auto font-light leading-loose">
               南京林业大学工业设计硕士 · 现任职于中国移动云能力中心
               <br />
-              <span className="text-zinc-500 mt-2 block">
-                主导天枢交付平台架构定义，将数据准备效能由天级提升至小时级
+              <span className="text-zinc-500 mt-4 block">
+                AI 工程化交互｜智能自动化交付｜全栈设计提效｜体验治理闭环
               </span>
             </p>
           </motion.div>
