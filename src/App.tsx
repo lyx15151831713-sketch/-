@@ -213,6 +213,7 @@ export default function App() {
                 {[
                   "“琢玉”一等奖",
                   "移动云最佳新人奖",
+                  "“翰墨丹青颂祖国”书画摄影大赛铜奖",
                   "20 篇实用新型专利",
                   "优秀硕士研究生",
                   "校级三好学生"
@@ -396,42 +397,55 @@ export default function App() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-4 glass-card p-6 rounded-3xl flex flex-col justify-between border-indigo-500/10"
+              className="lg:col-span-4 glass-card p-6 rounded-3xl flex flex-col justify-between border-indigo-500/10 relative overflow-hidden group"
             >
-              <div className="mb-6">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <div className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest font-bold">Xiaohongshu IP</div>
-                    <h3 className="text-2xl font-bold text-white tracking-tighter">Sadhu在努力</h3>
-                  </div>
-                  <div className="px-2 py-1 rounded bg-indigo-500/10 border border-indigo-500/20 text-[8px] text-indigo-400 font-mono">EST. 2020</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-3 rounded-2xl bg-white/5 border border-white/5 text-center">
-                    <div className="text-lg font-bold text-white">8K+</div>
-                    <div className="text-[7px] text-zinc-500 uppercase tracking-widest">Fans</div>
-                  </div>
-                  <div className="p-3 rounded-2xl bg-white/5 border border-white/5 text-center">
-                    <div className="text-lg font-bold text-white">10W+</div>
-                    <div className="text-[7px] text-zinc-500 uppercase tracking-widest">Viral</div>
-                  </div>
-                </div>
+              {/* Tech Background */}
+              <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-700">
+                <img 
+                  src="https://picsum.photos/seed/ip-tech/600/800" 
+                  alt="IP Tech" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
               </div>
-
-              <div className="space-y-3">
-                <div className="text-[9px] text-zinc-500 uppercase tracking-widest text-center mb-2">Conversion Funnel</div>
-                {[
-                  { label: "公域曝光", value: "10W+", width: "w-full", color: "bg-indigo-500/10" },
-                  { label: "私域留存", value: "8000+", width: "w-[80%]", color: "bg-indigo-500/20" },
-                  { label: "付费转化", value: "5W+", width: "w-[60%]", color: "bg-indigo-500/30" }
-                ].map((step, idx) => (
-                  <div key={idx} className="flex flex-col items-center">
-                    <div className={`${step.width} ${step.color} h-10 rounded-lg border border-white/5 flex items-center justify-between px-4 relative overflow-hidden`}>
-                      <span className="text-[8px] font-bold text-white/50 uppercase">{step.label}</span>
-                      <span className="text-xs font-mono font-bold text-white">{step.value}</span>
+              
+              <div className="relative z-10">
+                <div className="mb-6">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <div className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest font-bold">Xiaohongshu IP</div>
+                      <h3 className="text-2xl font-bold text-white tracking-tighter">Sadhu在努力</h3>
+                    </div>
+                    <div className="px-2 py-1 rounded bg-indigo-500/10 border border-indigo-500/20 text-[8px] text-indigo-400 font-mono">EST. 2020</div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="p-3 rounded-2xl bg-white/5 border border-white/5 text-center">
+                      <div className="text-lg font-bold text-white">8K+</div>
+                      <div className="text-[7px] text-zinc-500 uppercase tracking-widest">Fans</div>
+                    </div>
+                    <div className="p-3 rounded-2xl bg-white/5 border border-white/5 text-center">
+                      <div className="text-lg font-bold text-white">10W+</div>
+                      <div className="text-[7px] text-zinc-500 uppercase tracking-widest">Viral</div>
                     </div>
                   </div>
-                ))}
+                </div>
+
+                <div className="space-y-3">
+                  <div className="text-[9px] text-zinc-500 uppercase tracking-widest text-center mb-2">Conversion Funnel</div>
+                  {[
+                    { label: "公域曝光", value: "10W+", width: "w-full", color: "bg-indigo-500/10" },
+                    { label: "私域留存", value: "8000+", width: "w-[80%]", color: "bg-indigo-500/20" },
+                    { label: "付费转化", value: "5W+", width: "w-[60%]", color: "bg-indigo-500/30" }
+                  ].map((step, idx) => (
+                    <div key={idx} className="flex flex-col items-center">
+                      <div className={`${step.width} ${step.color} h-10 rounded-lg border border-white/5 flex items-center justify-between px-4 relative overflow-hidden`}>
+                        <span className="text-[8px] font-bold text-white/50 uppercase">{step.label}</span>
+                        <span className="text-xs font-mono font-bold text-white">{step.value}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
@@ -441,25 +455,37 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="glass-card p-6 rounded-3xl border-white/5 flex flex-col"
+                className="glass-card p-6 rounded-3xl border-white/5 flex flex-col relative overflow-hidden group"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
-                    <TrendingUp className="w-5 h-5 text-indigo-400" />
-                  </div>
-                  <h4 className="text-lg font-bold">增长策略与内容工程</h4>
+                {/* Tech Background */}
+                <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-700">
+                  <img 
+                    src="https://picsum.photos/seed/strategy-tech/600/800" 
+                    alt="Strategy Tech" 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
-                <div className="space-y-4 flex-1">
-                  {[
-                    { t: "生命周期管理", d: "全方位调研备考痛点，构建公域获客到长尾转化的闭环。" },
-                    { t: "节点精准运营", d: "细化至周级，在 3/5/10 月关键节点加大投放，ROI 最大化。" },
-                    { t: "内容矩阵设计", d: "涨粉引流、心智强化、高转化变现三位一体，确保持续性。" }
-                  ].map((item, i) => (
-                    <div key={i} className="p-3 rounded-2xl bg-white/5 border border-white/5">
-                      <div className="text-xs font-bold text-indigo-400 mb-1">{item.t}</div>
-                      <p className="text-zinc-400 text-[11px] leading-relaxed">{item.d}</p>
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
+                      <TrendingUp className="w-5 h-5 text-indigo-400" />
                     </div>
-                  ))}
+                    <h4 className="text-lg font-bold">增长策略与内容工程</h4>
+                  </div>
+                  <div className="space-y-4 flex-1">
+                    {[
+                      { t: "生命周期管理", d: "全方位调研备考痛点，构建公域获客到长尾转化的闭环。" },
+                      { t: "节点精准运营", d: "细化至周级，在 3/5/10 月关键节点加大投放，ROI 最大化。" },
+                      { t: "内容矩阵设计", d: "涨粉引流、心智强化、高转化变现三位一体，确保持续性。" }
+                    ].map((item, i) => (
+                      <div key={i} className="p-3 rounded-2xl bg-white/5 border border-white/5">
+                        <div className="text-xs font-bold text-indigo-400 mb-1">{item.t}</div>
+                        <p className="text-zinc-400 text-[11px] leading-relaxed">{item.d}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
 
@@ -468,25 +494,37 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="glass-card p-6 rounded-3xl border-white/5 flex flex-col"
+                className="glass-card p-6 rounded-3xl border-white/5 flex flex-col relative overflow-hidden group"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center border border-purple-500/20">
-                    <DollarSign className="w-5 h-5 text-purple-400" />
-                  </div>
-                  <h4 className="text-lg font-bold">商业化与私域闭环</h4>
+                {/* Tech Background */}
+                <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-700">
+                  <img 
+                    src="https://picsum.photos/seed/monetization-tech/600/800" 
+                    alt="Monetization Tech" 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
-                <div className="space-y-4 flex-1">
-                  {[
-                    { t: "信任重塑链路", d: "通过 1 小时免费通话及深度答疑建立专业信任感，提升转化率。" },
-                    { t: "SKU 矩阵开发", d: "独立定义入门、冲刺、核心资料多款产品，实现分层销售。" },
-                    { t: "量化成果", d: "产出多篇 10W+ 爆款，获赞收藏 7W+，实现商业变现 5W+。" }
-                  ].map((item, i) => (
-                    <div key={i} className="p-3 rounded-2xl bg-white/5 border border-white/5">
-                      <div className="text-xs font-bold text-purple-400 mb-1">{item.t}</div>
-                      <p className="text-zinc-400 text-[11px] leading-relaxed">{item.d}</p>
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center border border-purple-500/20">
+                      <DollarSign className="w-5 h-5 text-purple-400" />
                     </div>
-                  ))}
+                    <h4 className="text-lg font-bold">商业化与私域闭环</h4>
+                  </div>
+                  <div className="space-y-4 flex-1">
+                    {[
+                      { t: "信任重塑链路", d: "通过 1 小时免费通话及深度答疑建立专业信任感，提升转化率。" },
+                      { t: "SKU 矩阵开发", d: "独立定义入门、冲刺、核心资料多款产品，实现分层销售。" },
+                      { t: "量化成果", d: "产出多篇 10W+ 爆款，获赞收藏 7W+，实现商业变现 5W+。" }
+                    ].map((item, i) => (
+                      <div key={i} className="p-3 rounded-2xl bg-white/5 border border-white/5">
+                        <div className="text-xs font-bold text-purple-400 mb-1">{item.t}</div>
+                        <p className="text-zinc-400 text-[11px] leading-relaxed">{item.d}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             </div>
