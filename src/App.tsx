@@ -415,7 +415,7 @@ export default function App() {
                   <div className="flex justify-between items-start mb-4">
                     <div>
                       <div className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest font-bold">Xiaohongshu IP</div>
-                      <h3 className="text-2xl font-bold text-white tracking-tighter">Sadhu在努力</h3>
+                      <h3 className="text-2xl font-bold text-white tracking-tighter">萱萱小狮子</h3>
                     </div>
                     <div className="px-2 py-1 rounded bg-indigo-500/10 border border-indigo-500/20 text-[8px] text-indigo-400 font-mono">EST. 2020</div>
                   </div>
@@ -563,8 +563,8 @@ export default function App() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 w-full max-w-4xl">
               {[
                 { name: "公众号", label: "AI 产品笔记", color: "bg-emerald-500/10 text-emerald-500" },
-                { name: "小红书", label: "@刘玉萱", color: "bg-red-500/10 text-red-500" },
-                { name: "微信", label: "15151831713", color: "bg-blue-500/10 text-blue-500" }
+                { name: "小红书", label: "萱萱小狮子", color: "bg-red-500/10 text-red-500" },
+                { name: "微信", label: "啦啦啦", color: "bg-blue-500/10 text-blue-500" }
               ].map((social, i) => (
                 <motion.div 
                   key={i} 
